@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "FAST JOB — Agence d'intérim à Rennes",
   description:
-    "Votre agence d'intérim à Rennes. Gérez votre profil, vos documents et votre CV en ligne.",
+    "Créez votre profil et recevez les missions intérim qui vous correspondent. FAST JOB vous contacte quand une offre match votre profil.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

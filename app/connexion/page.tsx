@@ -45,12 +45,12 @@ export default function ConnexionPage() {
       >
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold text-white">
-            {isRegister ? "Crée ton profil" : "Connexion"}
+            {isRegister ? "Créez votre profil" : "Connexion"}
           </h1>
           <p className="mt-2 text-sm text-slate-400">
             {isRegister
-              ? "Rejoignez FAST JOB et accédez à votre espace candidat à Rennes"
-              : "Accédez à votre espace candidat"}
+              ? "Inscrivez-vous pour activer le matching — nous vous enverrons les missions adaptées à votre profil"
+              : "Accédez à vos offres personnalisées et à votre dossier"}
           </p>
         </div>
 

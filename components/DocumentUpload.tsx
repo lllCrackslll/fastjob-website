@@ -78,7 +78,7 @@ export default function DocumentUpload() {
             className="mt-2 flex items-center gap-1 text-xs text-green-400"
           >
             <CheckCircle2 className="h-3.5 w-3.5" />
-            Dossier presque complet — prêt à être transmis !
+            Dossier presque complet — votre profil est prêt pour le matching !
           </motion.p>
         )}
       </div>

@@ -15,10 +15,46 @@ export default function QuartiersSection() {
           className="mb-10 text-center"
         >
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Quartiers de Rennes
+            Comment ça marche ?
           </h2>
           <p className="mt-3 text-slate-400">
-            FAST JOB couvre l&apos;ensemble de la métropole rennaise
+            Un parcours simple : vous créez votre profil, nous faisons le reste
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass-card mx-auto mb-12 max-w-3xl p-5 sm:p-8"
+        >
+          <div className="grid gap-6 sm:grid-cols-3">
+            {[
+              { step: "1", text: "Créez votre profil et déposez vos documents" },
+              { step: "2", text: "FAST JOB analyse votre profil et vos disponibilités" },
+              { step: "3", text: "Recevez les missions qui vous correspondent" },
+            ].map((item) => (
+              <div key={item.step} className="flex flex-col items-center gap-2 text-center">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-electric text-sm font-bold text-night">
+                  {item.step}
+                </span>
+                <span className="text-sm text-slate-400">{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8 text-center"
+        >
+          <h3 className="text-xl font-bold text-white sm:text-2xl">
+            Quartiers de Rennes
+          </h3>
+          <p className="mt-2 text-slate-400">
+            Nous vous proposons des missions sur toute la métropole rennaise
           </p>
         </motion.div>
 
@@ -37,32 +73,6 @@ export default function QuartiersSection() {
             </motion.span>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-8 glass-card mx-auto max-w-3xl p-5 text-center sm:mt-12 sm:p-8"
-        >
-          <h3 className="mb-3 text-lg font-semibold text-white">
-            Comment ça marche ?
-          </h3>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {[
-              { step: "1", text: "Créez votre profil en 2 min" },
-              { step: "2", text: "Déposez vos documents" },
-              { step: "3", text: "Complétez votre CV en ligne" },
-            ].map((item) => (
-              <div key={item.step} className="flex flex-col items-center gap-2">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-electric text-sm font-bold text-night">
-                  {item.step}
-                </span>
-                <span className="text-sm text-slate-400">{item.text}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

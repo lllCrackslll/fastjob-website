@@ -141,7 +141,7 @@ export default function CvEditorClient() {
               <h1 className="text-2xl font-bold text-white sm:text-3xl">Éditeur de CV</h1>
             </div>
             <p className="text-sm text-slate-400">
-              Remplissez votre CV — vos données sont sauvegardées en base et retrouvables à chaque connexion.
+              Remplissez votre profil — plus il est complet, plus FAST JOB peut vous proposer des missions pertinentes.
             </p>
             {lastSaved && (
               <p className="mt-1 text-xs text-slate-500">

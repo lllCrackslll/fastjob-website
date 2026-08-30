@@ -12,8 +12,8 @@ export default function Footer() {
               <Logo href="/" height={56} className="!h-12 w-auto sm:!h-14" />
             </div>
             <p className="text-sm leading-relaxed text-slate-400">
-              L&apos;agence d&apos;intérim nouvelle génération à Rennes.
-              Gérez votre profil, vos documents et votre CV en toute simplicité.
+              Créez votre profil, complétez votre dossier et recevez les missions
+              intérim à Rennes qui correspondent à votre profil.
             </p>
           </div>
 

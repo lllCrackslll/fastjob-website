@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Zap, Clock, Smartphone, ArrowRight } from "lucide-react";
+import { Zap, Clock, Smartphone, ArrowRight, Inbox } from "lucide-react";
 import { STATS } from "@/lib/mock-data";
 
 const iconMap = {
@@ -22,13 +22,13 @@ export default function HeroSection() {
           className="text-center"
         >
           <h1 className="mx-auto max-w-4xl text-[1.75rem] font-bold leading-[1.15] tracking-tight text-white min-[400px]:text-3xl sm:text-5xl lg:text-6xl">
-            Votre agence d&apos;intérim à Rennes{" "}
-            <span className="text-electric">en un éclair</span> ⚡
+            Créez votre profil,{" "}
+            <span className="text-electric">on vous envoie les missions</span> ⚡
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-slate-400 sm:mt-6 sm:text-lg">
-            Gérez votre profil, vos documents et votre CV en ligne.
-            Une plateforme simple, rapide et pensée pour l&apos;intérim à Rennes.
+            Pas de recherche, pas de candidature à gérer. Vous complétez votre profil
+            et FAST JOB vous contacte dès qu&apos;une mission à Rennes correspond à votre profil.
           </p>
         </motion.div>
 
@@ -45,6 +45,16 @@ export default function HeroSection() {
           <Link href="/connexion" className="btn-ghost w-full sm:w-auto sm:px-8">
             Se connecter
           </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="mx-auto mt-6 flex max-w-xl items-center justify-center gap-2 rounded-xl border border-electric/20 bg-electric/5 px-4 py-3 text-sm text-slate-300"
+        >
+          <Inbox className="h-4 w-4 shrink-0 text-electric" />
+          Les offres arrivent dans votre espace personnel — vous indiquez si la mission vous intéresse.
         </motion.div>
 
         <motion.div
