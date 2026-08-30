@@ -49,8 +49,8 @@ export default function ConnexionPage() {
           </h1>
           <p className="mt-2 text-sm text-slate-400">
             {isRegister
-              ? "Rejoins FAST JOB et trouve ta prochaine mission à Rennes"
-              : "Accède à ton espace candidat"}
+              ? "Rejoignez FAST JOB et accédez à votre espace candidat à Rennes"
+              : "Accédez à votre espace candidat"}
           </p>
         </div>
 

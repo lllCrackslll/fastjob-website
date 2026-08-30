@@ -2,7 +2,7 @@ import CvEditorClient from "@/components/CvEditorClient";
 
 export const metadata = {
   title: "Éditeur de CV — FAST JOB",
-  description: "Crée et enregistre ton CV pour tes candidatures intérim à Rennes.",
+  description: "Créez et enregistrez votre CV pour vos démarches d'intérim à Rennes.",
 };
 
 export default function EditeurCvPage() {

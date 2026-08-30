@@ -141,7 +141,7 @@ export default function CvEditorClient() {
               <h1 className="text-2xl font-bold text-white sm:text-3xl">Éditeur de CV</h1>
             </div>
             <p className="text-sm text-slate-400">
-              Remplis ton CV — tes données sont sauvegardées en base et retrouvables à chaque connexion.
+              Remplissez votre CV — vos données sont sauvegardées en base et retrouvables à chaque connexion.
             </p>
             {lastSaved && (
               <p className="mt-1 text-xs text-slate-500">
@@ -215,7 +215,7 @@ export default function CvEditorClient() {
                   { key: "email" as const, label: "Email", placeholder: "email@exemple.fr", type: "email" },
                   { key: "phone" as const, label: "Téléphone", placeholder: "06 12 34 56 78" },
                   { key: "city" as const, label: "Ville", placeholder: "Rennes" },
-                  { key: "headline" as const, label: "Titre pro", placeholder: "Étudiant en logistique" },
+                  { key: "headline" as const, label: "Titre pro", placeholder: "Agent logistique" },
                 ].map((field) => (
                   <div key={field.key} className={field.key === "headline" ? "sm:col-span-2" : ""}>
                     <label className="mb-1 block text-xs font-medium text-slate-500">{field.label}</label>
@@ -234,7 +234,7 @@ export default function CvEditorClient() {
                     rows={3}
                     value={cvData.personal.summary}
                     onChange={(e) => updatePersonal("summary", e.target.value)}
-                    placeholder="Jeune motivé, disponible en intérim à Rennes..."
+                    placeholder="Profil professionnel, disponibilités, secteurs recherchés..."
                     className="input-field resize-none px-3 py-2 text-sm"
                   />
                 </div>

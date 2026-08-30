@@ -9,9 +9,8 @@ import { useAuth } from "@/lib/auth-context";
 import Logo from "@/components/Logo";
 
 const navLinks = [
-  { href: "/offres", label: "Offres" },
   { href: "/#comment-ca-marche", label: "Comment ça marche" },
-  { href: "/#avantages", label: "Avantages Jeunes" },
+  { href: "/#avantages", label: "Nos avantages" },
 ];
 
 export default function Header() {

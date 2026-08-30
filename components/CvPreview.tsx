@@ -126,7 +126,7 @@ export default function CvPreview({ data, title }: CvPreviewProps) {
           skills.length === 0 &&
           languages.length === 0 && (
             <p className="mt-6 text-center text-sm text-slate-400">
-              Commence à remplir le formulaire pour voir ton CV ici.
+              Commencez à remplir le formulaire pour voir votre CV ici.
             </p>
           )}
       </div>

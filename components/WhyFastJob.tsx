@@ -24,7 +24,7 @@ export default function WhyFastJob() {
             Pourquoi <span className="text-electric">FAST JOB</span> ?
           </h2>
           <p className="mt-3 text-slate-400">
-            L&apos;intérim repensé pour ta génération
+            L&apos;intérim simplifié, humain et efficace
           </p>
         </motion.div>
 

@@ -78,7 +78,7 @@ export default function DocumentUpload() {
             className="mt-2 flex items-center gap-1 text-xs text-green-400"
           >
             <CheckCircle2 className="h-3.5 w-3.5" />
-            Dossier presque complet — tu peux postuler !
+            Dossier presque complet — prêt à être transmis !
           </motion.p>
         )}
       </div>

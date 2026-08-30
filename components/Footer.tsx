@@ -12,17 +12,16 @@ export default function Footer() {
               <Logo href="/" height={56} className="!h-12 w-auto sm:!h-14" />
             </div>
             <p className="text-sm leading-relaxed text-slate-400">
-              L&apos;agence d&apos;intérim nouvelle génération dédiée aux jeunes
-              et étudiants à Rennes.
+              L&apos;agence d&apos;intérim nouvelle génération à Rennes.
+              Gérez votre profil, vos documents et votre CV en toute simplicité.
             </p>
           </div>
 
           <div>
             <h4 className="mb-4 text-sm font-semibold text-white">Navigation</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link href="/offres" className="transition-colors hover:text-electric">Offres d&apos;emploi</Link></li>
-              <li><Link href="/editeur-cv" className="transition-colors hover:text-electric">Éditeur de CV</Link></li>
               <li><Link href="/connexion" className="transition-colors hover:text-electric">Créer mon profil</Link></li>
+              <li><Link href="/editeur-cv" className="transition-colors hover:text-electric">Éditeur de CV</Link></li>
               <li><Link href="/dashboard" className="transition-colors hover:text-electric">Mon espace</Link></li>
             </ul>
           </div>
