@@ -1,0 +1,52 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { AuthProvider } from "@/lib/auth-context";
+import { ToastProvider } from "@/lib/toast-context";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+});
+
+export const metadata: Metadata = {
+  title: "FAST JOB — Intérim nouvelle génération à Rennes",
+  description:
+    "Trouve ta mission d'intérim à Rennes en un éclair. Missions courtes, jobs étudiants et tremplins pros.",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="fr" className="dark">
+      <body
+        className={`${inter.variable} font-sans antialiased bg-night text-white min-h-screen overflow-x-hidden`}
+      >
+        <AuthProvider>
+          <ToastProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <div className="pointer-events-none fixed inset-0 overflow-hidden">
+                <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-electric/5 blur-3xl" />
+                <div className="absolute top-1/2 -left-40 h-80 w-80 rounded-full bg-night-light/40 blur-3xl" />
+              </div>
+              <Header />
+              <main className="relative flex-1">{children}</main>
+              <Footer />
+            </div>
+          </ToastProvider>
+        </AuthProvider>
+      </body>
+    </html>
+  );
+}

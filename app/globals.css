@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-night text-white;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    @apply bg-electric/30 text-white;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-night-border bg-night-card/70 backdrop-blur-md transition-colors duration-300 hover:border-amber-400/40;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-electric px-5 py-2.5 text-sm font-semibold text-night transition-all duration-200 hover:bg-electric-dark hover:shadow-lg hover:shadow-electric/20 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-night-border bg-transparent px-5 py-2.5 text-sm font-medium text-slate-300 transition-all duration-200 hover:border-night-muted hover:bg-night-muted/50 hover:text-white active:scale-[0.98];
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .badge-electric {
+    @apply inline-flex items-center gap-1 rounded-full border border-electric/30 bg-electric/10 px-3 py-1 text-xs font-semibold text-electric animate-pulse-glow;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-night-border/70 bg-night-muted/40 py-3 text-white placeholder:text-slate-500 focus:border-electric/50 focus:outline-none focus:ring-1 focus:ring-electric/30;
+  }
+}
