@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Mail, Lock, ArrowRight } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useToast } from "@/lib/toast-context";
-import Logo from "@/components/Logo";
 
 export default function ConnexionPage() {
   const [email, setEmail] = useState("");
@@ -45,9 +44,6 @@ export default function ConnexionPage() {
         className="w-full max-w-md"
       >
         <div className="mb-8 text-center">
-          <div className="mb-5 flex justify-center">
-            <Logo href={null} height={80} className="!h-16 w-auto sm:!h-20" />
-          </div>
           <h1 className="text-2xl font-bold text-white">
             {isRegister ? "Crée ton profil" : "Connexion"}
           </h1>

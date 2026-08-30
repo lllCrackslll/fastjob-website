@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { jobOffers } from "@/lib/mock-data";
@@ -8,13 +8,37 @@ import JobCard from "./JobCard";
 import OfferModal from "./OfferModal";
 import type { JobOffer } from "@/lib/mock-data";
 
+const SWIPE_OFFSET_THRESHOLD = 80;
+const SWIPE_VELOCITY_THRESHOLD = 400;
+
 export default function FeaturedMissions() {
   const featured = jobOffers.filter((o) => o.featured);
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
   const [selectedOffer, setSelectedOffer] = useState<JobOffer | null>(null);
 
-  const prev = () => setCurrent((c) => (c === 0 ? featured.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === featured.length - 1 ? 0 : c + 1));
+  const prev = () => {
+    setDirection(-1);
+    setCurrent((c) => (c === 0 ? featured.length - 1 : c - 1));
+  };
+
+  const next = () => {
+    setDirection(1);
+    setCurrent((c) => (c === featured.length - 1 ? 0 : c + 1));
+  };
+
+  const handleSwipeEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const { offset, velocity } = info;
+
+    if (offset.x <= -SWIPE_OFFSET_THRESHOLD || velocity.x <= -SWIPE_VELOCITY_THRESHOLD) {
+      next();
+      return;
+    }
+
+    if (offset.x >= SWIPE_OFFSET_THRESHOLD || velocity.x >= SWIPE_VELOCITY_THRESHOLD) {
+      prev();
+    }
+  };
 
   const mobileOffer = featured[current];
   const desktopVisible = [
@@ -22,6 +46,21 @@ export default function FeaturedMissions() {
     featured[(current + 1) % featured.length],
     featured[(current + 2) % featured.length],
   ].filter(Boolean);
+
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 120 : -120,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? -120 : 120,
+      opacity: 0,
+    }),
+  };
 
   return (
     <section className="px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
@@ -40,8 +79,11 @@ export default function FeaturedMissions() {
             <p className="mt-1 text-sm text-slate-400 sm:mt-2 sm:text-base">
               Les offres urgentes du moment à Rennes
             </p>
+            <p className="mt-2 text-xs text-slate-500 md:hidden">
+              Glisse pour voir les autres missions →
+            </p>
           </div>
-          <div className="flex items-center gap-2 self-start sm:self-auto">
+          <div className="hidden items-center gap-2 self-start md:flex sm:self-auto">
             <button
               type="button"
               aria-label="Mission précédente"
@@ -61,32 +103,44 @@ export default function FeaturedMissions() {
           </div>
         </motion.div>
 
-        {/* Mobile : 1 carte + indicateurs */}
-        <div className="md:hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={mobileOffer?.id}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.25 }}
-            >
-              {mobileOffer && (
-                <JobCard
-                  offer={mobileOffer}
-                  onClick={() => setSelectedOffer(mobileOffer)}
-                  compact
-                />
-              )}
-            </motion.div>
-          </AnimatePresence>
+        {/* Mobile : swipe horizontal */}
+        <div className="touch-pan-y md:hidden">
+          <div className="overflow-hidden">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={mobileOffer?.id}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.28, ease: "easeOut" }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.12}
+                onDragEnd={handleSwipeEnd}
+                className="cursor-grab active:cursor-grabbing"
+              >
+                {mobileOffer && (
+                  <JobCard
+                    offer={mobileOffer}
+                    onClick={() => setSelectedOffer(mobileOffer)}
+                    compact
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
           <div className="mt-4 flex justify-center gap-2">
             {featured.map((_, i) => (
               <button
                 key={i}
                 type="button"
                 aria-label={`Aller à la mission ${i + 1}`}
-                onClick={() => setCurrent(i)}
+                onClick={() => {
+                  setDirection(i > current ? 1 : -1);
+                  setCurrent(i);
+                }}
                 className={`h-2 rounded-full transition-all ${
                   i === current ? "w-6 bg-electric" : "w-2 bg-night-muted"
                 }`}
