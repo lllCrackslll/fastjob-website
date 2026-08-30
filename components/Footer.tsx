@@ -2,6 +2,13 @@ import Link from "next/link";
 import { MapPin, Mail } from "lucide-react";
 import Logo from "@/components/Logo";
 
+const legalLinks = [
+  { href: "/mentions-legales", label: "Mentions légales" },
+  { href: "/politique-confidentialite", label: "Confidentialité" },
+  { href: "/cgu", label: "CGU" },
+  { href: "/cookies", label: "Cookies" },
+];
+
 export default function Footer() {
   return (
     <footer className="relative border-t border-night-border/60 bg-night">
@@ -35,14 +42,31 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-electric" />
-                contact@fastjob.fr
+                <a href="mailto:contact@fastjob.fr" className="transition-colors hover:text-electric">
+                  contact@fastjob.fr
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-night-border pt-6 text-center text-xs text-slate-500">
-          © 2026 FAST JOB — Tous droits réservés.
+        <div className="mt-10 border-t border-night-border pt-6">
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+            <p className="text-center text-xs text-slate-500 sm:text-left">
+              © 2026 FAST JOB — Tous droits réservés.
+            </p>
+            <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-xs text-slate-500 transition-colors hover:text-electric"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </footer>
