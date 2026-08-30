@@ -1,12 +1,3 @@
-export type Quartier =
-  | "Centre-ville"
-  | "Beaulieu"
-  | "Villejean"
-  | "Gare"
-  | "Atalante"
-  | "Saint-Grégoire"
-  | "Rennes Sud";
-
 export type MatchedOfferStatus = "Nouvelle" | "Intéressé" | "Confirmée" | "Refusée";
 
 export interface MatchedOffer {
@@ -20,16 +11,6 @@ export interface MatchedOffer {
   status: MatchedOfferStatus;
   sentAt: string;
 }
-
-export const QUARTIERS: Quartier[] = [
-  "Beaulieu",
-  "Villejean",
-  "Centre-ville",
-  "Atalante",
-  "Saint-Grégoire",
-  "Gare",
-  "Rennes Sud",
-];
 
 export const STATS = [
   { label: "Profil en 2 min", icon: "Zap" as const },
@@ -53,7 +34,7 @@ export const WHY_FASTJOB = [
   {
     title: "Vous décidez",
     description:
-      "Recevez les missions adaptées à Rennes, consultez les détails et indiquez si la proposition vous intéresse.",
+      "Recevez des missions adaptées partout en France, consultez les détails et indiquez si la proposition vous intéresse.",
     icon: "Calendar" as const,
   },
 ];
@@ -62,8 +43,8 @@ export const MATCHED_OFFERS: MatchedOffer[] = [
   {
     id: "match-1",
     title: "Préparateur de commandes",
-    company: "LogiRennes Sud",
-    location: "Rennes Sud — Chartres-de-Bretagne",
+    company: "LogiExpress",
+    location: "Zone logistique — Lyon",
     hourlyRate: 14.2,
     schedule: "Lundi au vendredi, 22h — 06h",
     matchReason: "Correspond à votre secteur logistique et vos disponibilités en soirée",
@@ -73,8 +54,8 @@ export const MATCHED_OFFERS: MatchedOffer[] = [
   {
     id: "match-2",
     title: "Agent polyvalent événementiel",
-    company: "Le Liberté",
-    location: "Rennes Centre",
+    company: "EventPro",
+    location: "Paris — 12e arrondissement",
     hourlyRate: 12.8,
     schedule: "Week-ends variables",
     matchReason: "Profil événementiel et disponibilités week-end renseignées",
@@ -84,8 +65,8 @@ export const MATCHED_OFFERS: MatchedOffer[] = [
   {
     id: "match-3",
     title: "Assistant support informatique",
-    company: "TechStart Rennes",
-    location: "Beaulieu — Atalante",
+    company: "TechStart",
+    location: "Nantes — Erdre",
     hourlyRate: 13.0,
     schedule: "Semaine, 9h — 17h",
     matchReason: "Compétences informatiques détectées dans votre CV",

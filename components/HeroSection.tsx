@@ -28,7 +28,7 @@ export default function HeroSection() {
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-slate-400 sm:mt-6 sm:text-lg">
             Pas de recherche, pas de candidature à gérer. Vous complétez votre profil
-            et FAST JOB vous contacte dès qu&apos;une mission à Rennes correspond à votre profil.
+            et FAST JOB vous contacte dès qu&apos;une mission correspond à votre profil, partout en France.
           </p>
         </motion.div>
 

@@ -13,7 +13,7 @@ export default function Footer() {
             </div>
             <p className="text-sm leading-relaxed text-slate-400">
               Créez votre profil, complétez votre dossier et recevez les missions
-              intérim à Rennes qui correspondent à votre profil.
+              intérim partout en France qui correspondent à votre profil.
             </p>
           </div>
 
@@ -31,11 +31,11 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-slate-400">
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-electric" />
-                Rennes, Bretagne
+                France
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-electric" />
-                contact@fastjob-rennes.fr
+                contact@fastjob.fr
               </li>
             </ul>
           </div>

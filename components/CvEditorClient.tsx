@@ -214,7 +214,7 @@ export default function CvEditorClient() {
                   { key: "lastName" as const, label: "Nom", placeholder: "Dupont" },
                   { key: "email" as const, label: "Email", placeholder: "email@exemple.fr", type: "email" },
                   { key: "phone" as const, label: "Téléphone", placeholder: "06 12 34 56 78" },
-                  { key: "city" as const, label: "Ville", placeholder: "Rennes" },
+                  { key: "city" as const, label: "Ville", placeholder: "Paris, Lyon, Nantes..." },
                   { key: "headline" as const, label: "Titre pro", placeholder: "Agent logistique" },
                 ].map((field) => (
                   <div key={field.key} className={field.key === "headline" ? "sm:col-span-2" : ""}>

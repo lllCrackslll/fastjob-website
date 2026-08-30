@@ -1,13 +1,13 @@
 import HeroSection from "@/components/HeroSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
 import WhyFastJob from "@/components/WhyFastJob";
-import QuartiersSection from "@/components/QuartiersSection";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <HowItWorksSection />
       <WhyFastJob />
-      <QuartiersSection />
     </>
   );
 }
