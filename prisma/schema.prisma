@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Cv {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  title     String   @default("Mon CV")
+  templateId String  @default("classic")
+  data      String
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}

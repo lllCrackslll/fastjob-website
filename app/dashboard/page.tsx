@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { User, FileText, ClipboardList } from "lucide-react";
+import { User, FileText, ClipboardList, PenLine, ArrowRight } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import DocumentUpload from "@/components/DocumentUpload";
 import ApplicationsList from "@/components/ApplicationsList";
@@ -54,6 +55,24 @@ export default function DashboardPage() {
             </div>
           </div>
         </motion.div>
+
+        <Link
+          href="/editeur-cv"
+          className="glass-card mb-6 flex items-center justify-between gap-4 p-4 transition-colors hover:border-electric/40 sm:mb-8 sm:p-5"
+        >
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-electric/30 bg-electric/10">
+              <PenLine className="h-5 w-5 text-electric" />
+            </div>
+            <div>
+              <p className="font-semibold text-white">Éditeur de CV</p>
+              <p className="text-xs text-slate-400 sm:text-sm">
+                Crée ton CV — sauvegardé en base, modifiable à tout moment
+              </p>
+            </div>
+          </div>
+          <ArrowRight className="h-5 w-5 shrink-0 text-electric" />
+        </Link>
 
         <div className="-mx-4 mb-4 flex gap-1 overflow-x-auto border-b border-night-border px-4 sm:mx-0 sm:mb-6 sm:gap-2 sm:px-0">
           {tabs.map((tab) => {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, LogOut, User } from "lucide-react";
+import { Menu, X, LogOut, User, FileText } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import Logo from "@/components/Logo";
 
@@ -48,6 +48,13 @@ export default function Header() {
         <div className="hidden items-center gap-2 sm:gap-3 md:flex">
           {isLoggedIn ? (
             <>
+              <Link
+                href="/editeur-cv"
+                className="btn-ghost !min-h-[40px] !px-3 !py-2 text-xs"
+              >
+                <FileText className="h-4 w-4 shrink-0" />
+                <span className="hidden lg:inline">Mon CV</span>
+              </Link>
               <Link
                 href="/dashboard"
                 className="btn-ghost !min-h-[40px] !px-3 !py-2 text-xs"
@@ -105,6 +112,9 @@ export default function Header() {
               <div className="mt-2 flex flex-col gap-2 border-t border-night-border pt-4">
                 {isLoggedIn ? (
                   <>
+                    <Link href="/editeur-cv" className="btn-ghost w-full" onClick={() => setMobileOpen(false)}>
+                      Éditeur de CV
+                    </Link>
                     <Link href="/dashboard" className="btn-ghost w-full" onClick={() => setMobileOpen(false)}>
                       Mon espace
                     </Link>
